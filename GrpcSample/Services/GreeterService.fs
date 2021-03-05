@@ -1,3 +1,5 @@
+namespace GrpcSample
+
 open System
 
 type GreeterService() =

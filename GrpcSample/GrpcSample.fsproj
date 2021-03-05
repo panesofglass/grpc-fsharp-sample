@@ -14,11 +14,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Grpc.AspNetCore" Version="2.34.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Include="Services/GreeterService.fs" />
+    <Compile Include="Services\GreeterService.fs" />
     <Compile Include="Startup.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
