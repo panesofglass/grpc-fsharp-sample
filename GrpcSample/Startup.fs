@@ -1,6 +1,5 @@
 namespace GrpcSample
 
-open System
 open Microsoft.AspNetCore.Builder
 open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Http
@@ -21,8 +20,9 @@ type Startup() =
         app
             .UseRouting()
             .UseEndpoints(fun endpoints ->
-                endpoints
-                    .MapGrpcService<GreeterService>()
-                    .MapGet("/", (fun context -> context.Response.WriteAsync("Hello World!")))
+                endpoints.MapGrpcService<GreeterService>()
+                |> ignore
+
+                endpoints.MapGet("/", (fun context -> context.Response.WriteAsync("Hello World!")))
                 |> ignore)
         |> ignore

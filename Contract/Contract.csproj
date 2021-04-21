@@ -1,16 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <Compile Include="Program.fs" />
+    <Protobuf Include="greet.proto" GrpcServices="Both" />
   </ItemGroup>
-
   <ItemGroup>
-    <ProjectReference Include="..\Contract\Contract.csproj" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.37.0" />
   </ItemGroup>
-
 </Project>

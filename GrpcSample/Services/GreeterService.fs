@@ -1,16 +1,13 @@
 namespace GrpcSample
 
 open System
+open GrpcSample
 
 type GreeterService() =
-    inherit Greet.GreeterService.GreeterServiceBase()
+    inherit Greeter.GreeterBase()
 
-    override _.SayHello req ctx =
+    override _.SayHello(req, ctx) =
         let resp =
-            { Greet.HelloReply.empty() with
-                // Notice how we're immediately forced to handle missing fields.
-                // The language itself protects you from the binary protocol's quirks.
-                // How cool is THAT?
-                Message = req.Name |> ValueOption.map (sprintf "Hello, %s!")
-            }
+            HelloReply(Message = $"Hello, %s{req.Name}!")
+
         Threading.Tasks.Task.FromResult(resp)
